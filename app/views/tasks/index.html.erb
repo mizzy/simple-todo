@@ -1,0 +1,47 @@
+<div class="page-header">
+<h1>Listing tasks</h1>
+</div>
+
+<script>
+$(function() {		
+  //$("#tasks").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
+  $("#tasks").tablesorter();
+});	
+
+$(function(){
+  $("#tasks td:not(td.done)").click(function () {
+    var id = $(this).parent().attr("id");
+    location.href = "/tasks/" + id;
+  });
+});
+</script>
+
+<style type="text/css">
+tr:hover {
+  cursor: pointer;
+}
+</style>
+
+<table id="tasks" class="zebra-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Priority</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @tasks.each do |task| %>
+  <tr id="<%= task.id %>">
+    <td><%= task.id %></td> 
+    <td><%= task.title %></td> 
+    <td><%= task.description %></td>
+    <td><%= task.priority %></td>
+    <td class="done"><%= link_to 'Done', task, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+

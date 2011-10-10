@@ -1,0 +1,5 @@
+db:
+  type: mysql
+www:
+  type: ruby
+

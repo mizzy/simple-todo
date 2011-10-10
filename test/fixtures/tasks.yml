@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  priority: 1
+  closed_at: 2011-10-10
+
+two:
+  title: MyString
+  description: MyText
+  priority: 1
+  closed_at: 2011-10-10
